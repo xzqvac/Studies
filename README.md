@@ -20,7 +20,7 @@ b) Ruch postaci
 c) Grawitacja
 d) Wektory  
 
-2.Grafika (Isometric view, tweening/easing animations, czyli płynne przechodzenie animacji)
+2.Grafika (Isometric view, tweening/easing animations, czyli płynne przechodzenie animacji, assets, map tile)
 
 3.Muzyka
 
