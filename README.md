@@ -3,8 +3,8 @@
 Program będzie symulacją gry planszowej w widoku 2D. Będzię możliwość gry 
 
 <h2>Wykorzystane technologie:</h2>
-- Biblioteka pygame (biblioteka odpowiedzialna za grafikę)
-- Biblioteka Pytweening (biblioteka odpowiedzialna za animację)
+- Biblioteka pygame (biblioteka odpowiedzialna za grafikę)<br>
+- Biblioteka Pytweening (biblioteka odpowiedzialna za animację)<br>
 
 Z czego będzie składać się gra:
 0. Menu (Start/koniec gry)
