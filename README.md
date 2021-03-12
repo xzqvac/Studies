@@ -2,7 +2,7 @@
 
 <h1>2D Board game</h2>
 <h2> Opis programu </h2>
-Program będzie symulacją gry planszowej własnego autorstwa w widoku 2D. Gra będzie polegała na losowaniu miejsc przesunięcia się gracza i poruszenia we wskazane miejsce na planszy. W zależności od położenia gracza na planszy będą pojawiały się odpowiednie mini-gry, za które gracz jest nagradzany bądź karany. Możliwość gry dwóch osób na jednym urządzeniu. 
+Program będzie symulacją gry planszowej własnego autorstwa w widoku 3D. Gra będzie polegała na losowaniu miejsc przesunięcia się gracza i poruszenia we wskazane miejsce na planszy. W zależności od położenia gracza na planszy będą pojawiały się odpowiednie mini-gry, za które gracz jest nagradzany bądź karany. Możliwość gry dwóch osób na jednym urządzeniu. 
 
 <h2>Wykorzystane technologie:</h2>
 - Python 3.8<br>
