@@ -1,6 +1,6 @@
 # The_Game
 
-Z czego składa się gra:
+Z czego będzie składać się gra:
 0. Menu (Start/koniec gry)
 1. Main loop
    a) Update mapy
@@ -10,8 +10,8 @@ Z czego składa się gra:
 
 
 Wykorzystane technologie:
-- Biblioteka pygame
-- Biblioteka Pytweening
+- Biblioteka pygame (biblioteka odpowiedzialna za grafikę)
+- Biblioteka Pytweening (biblioteka odpowiedzialna za animację)
 
 
 1. Fizyka:
@@ -20,9 +20,9 @@ b) Ruch postaci
 c) Grawitacja
 d) Wektory  
 
-2.Grafika (Isometric view, tweening/easing animations, czyli płynne przechodzenie animacji, assets/sprites, map tile, scrolling map/camera)
+2.Grafika (Isometric view, tweening/easing animations, assets/sprites, map tile, scrolling map/camera)
 
-3.Muzyka
+3.Dźwięk
 
 4.Rozgrywka
  a) Fabuła (Plansza składająca się z odpowiednich zadań do wykonania, podzielona na różne biomy)
