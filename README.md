@@ -1,5 +1,5 @@
 # The_Game
-<h1> Opis programu <h1>
+<h1> Opis programu </h1>
 Program będzie symulacją gry planszowej w widoku 2D. Będzię możliwość gry 
 
 Wykorzystane technologie:
