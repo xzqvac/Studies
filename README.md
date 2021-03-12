@@ -27,3 +27,6 @@ d) Wektory
 4.Rozgrywka
  a) Fabuła (Plansza składająca się z odpowiednich zadań do wykonania, podzielona na różne biomy)
  b) Możliwość gry 2 osób offline
+ c)* Możliwość gry online
+ 
+ *Jeśli ilość czasu będzie wystarczająca
