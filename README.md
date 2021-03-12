@@ -1,6 +1,7 @@
 # The_Game
-<h2> Opis programu</h2>
-Program będzie symulacją gry planszowej własnego autorstwa w widoku 2D. Gra będzie polegała na losowaniu miejsc przesunięcia się gracza i poruszenia we wskazane miejsce na planszy. W zależności od położenia gracza na planszy będą  na Możliwość gry dwóch osób na jednym urządzeniu. 
+
+<h2> Opis programu <b>2D Board game</b></h2>
+Program będzie symulacją gry planszowej własnego autorstwa w widoku 2D. Gra będzie polegała na losowaniu miejsc przesunięcia się gracza i poruszenia we wskazane miejsce na planszy. W zależności od położenia gracza na planszy będą pojawiały się odpowiednie mini-gry. Możliwość gry dwóch osób na jednym urządzeniu. 
 
 <h2>Wykorzystane technologie:</h2>
 - Python 3.8<br>
