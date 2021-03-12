@@ -26,7 +26,7 @@ d) Wektory<br>
 4.Dźwięk<br>
 
 5.Rozgrywka<br>
-a) Fabuła (Plansza składająca się z odpowiednich zadań do wykonania, podzielona na różne biomy, gamedesign poziomów)<br>
+a) Fabuła (Plansza składająca się z odpowiednich zadań do wykonania, podzielona na różne biomy, design poziomów)<br>
 b) Możliwość gry 2 osób offline<br>
 c)* Możliwość gry online<br>
 d)* Zapis gry<br>
