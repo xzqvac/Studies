@@ -1,8 +1,9 @@
 # The_Game
 <h2> Opis programu</h2>
-Program będzie symulacją gry planszowej w widoku 2D. Będzię możliwość gry 
+Program będzie symulacją gry planszowej własnego autorstwa w widoku 2D. Gra będzie polegała na losowaniu miejsc przesunięcia się gracza i poruszenia we wskazane miejsce na planszy. W zależności od położenia gracza na planszy będą  na Możliwość gry dwóch osób na jednym urządzeniu. 
 
 <h2>Wykorzystane technologie:</h2>
+- Python 3.8
 - Biblioteka pygame (biblioteka odpowiedzialna za grafikę)<br>
 - Biblioteka Pytweening (biblioteka odpowiedzialna za animację)<br>
 
@@ -25,7 +26,7 @@ d) Wektory<br>
 4.Dźwięk<br>
 
 5.Rozgrywka<br>
-a) Fabuła (Plansza składająca się z odpowiednich zadań do wykonania, podzielona na różne biomy)<br>
+a) Fabuła (Plansza składająca się z odpowiednich zadań do wykonania, podzielona na różne biomy, gamedesign poziomów)<br>
 b) Możliwość gry 2 osób offline<br>
 c)* Możliwość gry online<br>
  
