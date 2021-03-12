@@ -3,7 +3,7 @@
 Program będzie symulacją gry planszowej własnego autorstwa w widoku 2D. Gra będzie polegała na losowaniu miejsc przesunięcia się gracza i poruszenia we wskazane miejsce na planszy. W zależności od położenia gracza na planszy będą  na Możliwość gry dwóch osób na jednym urządzeniu. 
 
 <h2>Wykorzystane technologie:</h2>
-- Python 3.8
+- Python 3.8<br>
 - Biblioteka pygame (biblioteka odpowiedzialna za grafikę)<br>
 - Biblioteka Pytweening (biblioteka odpowiedzialna za animację)<br>
 
@@ -29,5 +29,6 @@ d) Wektory<br>
 a) Fabuła (Plansza składająca się z odpowiednich zadań do wykonania, podzielona na różne biomy, gamedesign poziomów)<br>
 b) Możliwość gry 2 osób offline<br>
 c)* Możliwość gry online<br>
+d)* Zapis gry<br>
  
  *Jeśli ilość czasu będzie wystarczająca<br>
