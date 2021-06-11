@@ -7,7 +7,6 @@ Program będzie symulacją gry planszowej własnego autorstwa w widoku 2D. Gra b
 <h2>Wykorzystane technologie:</h2>
 - Python 3.8<br>
 - Biblioteka pygame (biblioteka odpowiedzialna za grafikę)<br>
-- Biblioteka Pytweening (biblioteka odpowiedzialna za animację)<br>
 
 <h2>Z czego będzie składać się gra:</h2>
 0. Menu (Start/koniec gry)<br>
