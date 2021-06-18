@@ -1,6 +1,3 @@
-
-
-
 class GameState():
     def __init__(self):
         # board is an 8x8 2d list, each element of thhe list has 2 characters.
@@ -22,7 +19,7 @@ class GameState():
 
         self.whiteToMove = True
         self.moveLog = []
-        self.whitKingLocation = (7, 4)
+        self.whiteKingLocation = (7, 4)
         self.blackKingLocation = (0, 4)
         self.checkMate = False
         self.staleMate = False
@@ -43,7 +40,7 @@ class GameState():
         self.whiteToMove = not self.whiteToMove  # swap players
         # update king`s location
         if move.pieceMoved == "wK":
-            self.whitKingLocation = (move.endRow, move.endCol)
+            self.whiteKingLocation = (move.endRow, move.endCol)
         elif move.pieceMoved == "bK":
             self.blackKingLocation = (move.endRow, move.endCol)
 
@@ -75,20 +72,13 @@ class GameState():
         self.castleRightsLog.append(CastleRights(self.currentCastlingRight.wks, self.currentCastlingRight.bks,
                                                  self.currentCastlingRight.wqs, self.currentCastlingRight.bqs))
 
-    '''
-    Undo the last move made
-    '''
+
+
+
 
     '''
-    Check 
+       Undo the last move made
     '''
-
-    def inCheck(self):
-        if self.whiteToMove:
-            return self.squareUnderAttack(self.whitKingLocation[0], self.whitKingLocation[1])
-        else:
-            return self.squareUnderAttack(self.blackKingLocation[0], self.blackKingLocation[1])
-
 
     def undoMove(self):
         if len(self.moveLog) != 0:  # make sure that there is a move to undo
@@ -98,7 +88,7 @@ class GameState():
             self.whiteToMove = not self.whiteToMove  # switch turns back
             # update king`s position
             if move.pieceMoved == 'wK':
-                self.whitKingLocation = (move.startRow, move.startCol)
+                self.whiteKingLocation = (move.startRow, move.startCol)
             elif move.pieceMoved == 'bK':
                 self.blackKingLocation = (move.startRow, move.startCol)
 
@@ -163,16 +153,22 @@ class GameState():
             self.staleMate = False
             '''
         if self.whiteToMove:
-            self.getCastleMoves(self.whitKingLocation[0], self.whitKingLocation[1], moves)
+            self.getCastleMoves(self.whiteKingLocation[0], self.whiteKingLocation[1], moves)
         else:
             self.getCastleMoves(self.blackKingLocation[0], self.blackKingLocation[1], moves)
         self.enpassantPossible = tempEnpassantPossible
-        if self.whiteToMove:
-            self.getCastleMoves(self.whitKingLocation[0], self.whitKingLocation[1], moves)
-        else:
-            self.getCastleMoves(self.blackKingLocation[0], self.blackKingLocation[1], moves)
         self.currentCastlingRight = tempCastleRights
         return moves
+
+    '''
+    Check 
+    '''
+
+    def inCheck(self):
+        if self.whiteToMove:
+            return self.squareUnderAttack(self.whiteKingLocation[0], self.whiteKingLocation[1])
+        else:
+            return self.squareUnderAttack(self.blackKingLocation[0], self.blackKingLocation[1])
 
 
     '''
@@ -216,7 +212,7 @@ class GameState():
                 if self.board[r - 1][c - 1][0] == 'b':  # enemy piece to capture
                     moves.append(Move((r, c), (r - 1, c - 1), self.board))
                 elif (r-1, c-1) == self.enpassantPossible:
-                    moves.append(Move((r, c), (r-1, c-1), self.board, isEnpassantMove=True))
+                    moves.append(Move((r, c), (r - 1, c - 1), self.board, isEnpassantMove=True))
             if c + 1 <= 7:  # capture to the right
                 if self.board[r - 1][c + 1][0] == 'b':  # enemy piece to capture
                     moves.append(Move((r, c), (r - 1, c + 1), self.board))
@@ -233,12 +229,12 @@ class GameState():
                 if self.board[r + 1][c - 1][0] == 'w':  # enemy piece to capture
                     moves.append(Move((r, c), (r + 1, c - 1), self.board))
                 elif (r+1, c-1) == self.enpassantPossible:
-                    moves.append(Move((r, c), (r+1, c-1), self.board, isEnpassantMove=True))
+                    moves.append(Move((r, c), (r + 1, c - 1), self.board, isEnpassantMove=True))
             if c + 1 <= 7:
                 if self.board[r + 1][c + 1][0] == 'w':  # enemy piece to capture
                     moves.append(Move((r, c), (r + 1, c + 1), self.board))
-                elif (r+1, c-1) == self.enpassantPossible:
-                    moves.append(Move((r, c), (r+1, c+1), self.board, isEnpassantMove=True))
+                elif (r+1, c+1) == self.enpassantPossible:
+                    moves.append(Move((r, c), (r + 1, c + 1), self.board, isEnpassantMove=True))
 
     '''
     Get all the rook moves for the rook located at row, col and thhese moves to thhe list
@@ -253,7 +249,7 @@ class GameState():
                 endCol = c + d[1] * i
                 if 0 <= endRow < 8 and 0 <= endCol < 8:
                     endPiece = self.board[endRow][endCol]
-                    if endPiece == '--':  # empty space valid
+                    if endPiece == "--":  # empty space valid
                         moves.append(Move((r, c), (endRow, endCol), self.board))
                     elif endPiece[0] == enemyColor:  # enemy piece valid
                         moves.append(Move((r, c), (endRow, endCol), self.board))
@@ -269,7 +265,7 @@ class GameState():
 
     def getKnightMoves(self, r, c, moves):
         knightMoves = ((-2, -1), (-2, 1), (-1, -2), (-1, 2), (1, -2), (1, 2), (2, -1), (2, 1))
-        allyColor = 'w' if self.whiteToMove else 'b'
+        allyColor = "w" if self.whiteToMove else "b"
         for m in knightMoves:
             endRow = r + m[0]
             endCol = c + m[1]
@@ -283,7 +279,7 @@ class GameState():
     '''
 
     def getBishopMoves(self, r, c, moves):
-        directions = ((-1, 1), (-1, 1), (1, -1), (1, 1))  # 4 diagonals
+        directions = ((-1, -1), (-1, 1), (1, -1), (1, 1))  # 4 diagonals
         enemyColor = "b" if self.whiteToMove else "w"
         for d in directions:
             for i in range(1, 8):
@@ -348,8 +344,6 @@ class CastleRights():
         self.bks = bks
         self.wqs = wqs
         self.bqs = bqs
-
-
 
 class Move():
     ranksToRows = {"1": 7, "2": 6, "3": 5, "4": 4, "5": 3, "6": 2, "7": 1, "8": 0}
