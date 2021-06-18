@@ -1,5 +1,3 @@
-import os
-import sys
 import pygame as py
 import ChessEngine
 
