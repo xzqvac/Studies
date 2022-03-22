@@ -75,10 +75,11 @@ const handler = {
       return `${target.r}`;
     }
     else if(property[0] === 'a'){
-      return eval(`${target.showA(Number(property.substring(1,)))}`);
+      //return eval(`${target.showA(Number(property.substring(1,)))}`);
+      return +target.showA(Number(property.substring(1,)));
     }
     else if(property[0] === 's'){
-      return eval(`${target.showSuma(Number(property.substring(4,)))}`);
+      return +target.showSuma(Number(property.substring(4,)));
     }
   }
 
