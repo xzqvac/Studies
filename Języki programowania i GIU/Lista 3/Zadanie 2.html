@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>
+    <input>
+</label>
+<br>
+<button>C</button><button>+/-</button><button>%</button><button>/</button>
+<br>
+<button>7</button><button>8</button><button>9</button><button>X</button>
+<br>
+<button>4</button><button>5</button><button>6</button><button>-</button>
+<br>
+<button>1</button><button>2</button><button>3</button><button>+</button>
+<br>
+<button>0</button><button>,</button><button>=</button>
+
+  <script>
+      let buttons = document.querySelectorAll('button');
+      let input = document.querySelector('input');
+      buttons.forEach(btn => {
+          switch(btn.innerText)
+          {
+              case 'C':
+              {
+                  btn.onclick = function clear(){
+                      input.value = '';
+                  }
+                  break;
+              }
+              case '+/-':
+              {
+                  btn.onclick = function changeSign(){
+                      input.value = eval(-1 * input.value);
+                  }
+                  break;
+              }
+              case '%':
+              {
+                  btn.onclick = function percentage(){
+                      input.value = eval(input.value / 100);
+                  }
+                  break;
+              }
+              default:
+              {
+                  btn.onclick = function value(){
+                      input.value += btn.innerText;
+                  }
+              }
+          }
+      })
+  </script>
+</body>
+</html>
