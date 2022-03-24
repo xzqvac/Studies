@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input>+<input>=<input>
+<script>
+    let [a, b, c] = document.querySelectorAll('input');
+
+    function f(){
+        c.value = +a.value + +b.value
+    }
+
+    function g(){
+        a.value = b.value = c.value / 2
+    }
+
+    function setTimeoutf(){
+        setTimeout(f, 5000)
+    }
+
+    function setTimeoutg(){
+        setTimeout(g, 5000)
+    }
+
+    a.onpaste = a.oncut = a.onkeyup = b.onpaste = b.oncut = b.onkeyup = setTimeoutf();
+
+    c.onpaste = c.oncut = c.onkeyup = setTimeoutg();
+
+
+
+</script>
+</body>
+</html>
+</html>
