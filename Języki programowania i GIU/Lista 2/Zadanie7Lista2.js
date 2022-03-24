@@ -65,6 +65,9 @@ class arytemtyczny{
 
 let z2 = new arytemtyczny({a7:9,r:2}); console.log(z2);
 z2.showA(1,10); console.log(z2.showA(1))
+
+
+
 console.log(z2);
 
 console.log(z2.showSuma(3));
