@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Simple calculator</title>
 </head>
 <body>
 <label>
@@ -43,6 +43,41 @@
               {
                   btn.onclick = function percentage(){
                       input.value = eval(input.value / 100);
+                  }
+                  break;
+              }
+              case 'X':
+              {
+                  btn.onclick = function multiplication(){
+                      input.value += ' * ';
+                  }
+                  break;
+              }
+              case '-':
+              {
+                  btn.onclick = function substraction(){
+                      input.value += ' - ';
+                  }
+                  break;
+              }
+              case '+':
+              {
+                  btn.onclick = function addition(){
+                      input.value += ' + ';
+                  }
+                  break;
+              }
+              case '=':
+              {
+                  btn.onclick = function substraction(){
+                      input.value = eval(input.value);
+                  }
+                  break;
+              }
+              case ',':
+              {
+                  btn.onclick = function comma(){
+                      input.value += '.';
                   }
                   break;
               }
