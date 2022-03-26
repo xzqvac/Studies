@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saper</title>
+    <style>
+      table {
+        width: 410px;
+        height: 410px;
+        text-align: center;
+          margin: auto;
+          position: relative;
+      }
+      td {
+          width: 40px;
+          height: 40px;
+
+      }
+      table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+
+      }
+      div {
+          text-align: center;
+          margin: 10px;
+      }
+    </style>
+</head>
+<body>
+  <table id="myTable">
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+      <tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+  </table>
+  <div>
+      <button> Stop </button>
+      <button> Start </button>
+  </div>
+  <script>
+    function getRandomIntInclusive(min, max){
+        let array = [];
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        for(let x = 0; x < 10; x++){
+            let number = Math.floor(Math.random() * (max - min + 1)) + min;
+            let check = array.includes(number);
+            if(check === false)
+                array.push(number)
+            else{
+                while(check === true){
+                    number = Math.floor(Math.random() * (max - min + 1)) + min;
+                    check = array.includes(number);
+                        if(check === false){
+                            array.push(number);
+                        }
+                }
+            }
+        }
+        return array;
+    }
+
+    let array = getRandomIntInclusive(0, 99)
+    console.log(array);
+    let cells = document.querySelectorAll('td');
+
+    array.forEach(number =>{
+        cells[number].className = 'bomba';
+    })
+
+    cells.forEach(cell =>{
+      cell.onclick = function checkBomb(){
+          if (this.className === 'bomba'){
+              this.style.background = "red";
+          }
+          else
+          {
+              let bombyDookola = 0;
+              let colIndex = this.cellIndex;
+              let rowIndex = this.parentNode.rowIndex;
+              let colLength = document.getElementById("myTable").rows[0].cells.length;
+              let rowLength = document.getElementById("myTable").rows.length;
+              let cellIndex = colIndex + rowLength * rowIndex;
+              if(colIndex === 0 && rowIndex === 0) // lewy gorny rog
+              {
+                if(cells[cellIndex + 1].className === 'bomba') bombyDookola++;
+                if(cells[cellIndex + rowLength].className === 'bomba') bombyDookola++;
+                if(cells[cellIndex + rowLength + 1].className === 'bomba')bombyDookola++;
+              }
+              else if(colIndex === (rowLength - 1)  && rowIndex === 0) // prawy gorny rog
+              {
+                  if(cells[cellIndex - 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + rowLength].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + rowLength - 1].className === 'bomba') bombyDookola++;
+              }
+              else if(colIndex === 0 && rowIndex === (rowLength - 1))// lewy dolny rog
+              {
+                  if(cells[cellIndex + 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength + 1].className === 'bomba') bombyDookola++;
+              }
+              else if(colIndex === (rowLength - 1) && rowIndex === (rowLength -1)) // Prawy dolny rog
+              {
+                  if(cells[cellIndex - 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength - 1].className === 'bomba') bombyDookola++;
+              }
+              else if(rowIndex === 0) { //gora
+                  if(cells[cellIndex - 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + rowLength].className === 'bomba')bombyDookola++;
+                  if(cells[cellIndex + rowLength - 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + rowLength + 1].className === 'bomba') bombyDookola++;
+              }
+              else if(rowIndex === colLength - 1) { //dol
+                  if(cells[cellIndex - 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength - 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength + 1].className === 'bomba') bombyDookola++;
+              }
+              else if(colIndex === 0 && (rowLength - 2 > 1)) { //lewy pion
+                  if(cells[cellIndex + 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + rowLength].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + rowLength + 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength + 1].className === 'bomba') bombyDookola++;
+              }
+              else if(colIndex === (rowLength - 1) && (rowLength - 2 > 1)) { //prawy pion
+                  if(cells[cellIndex - 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + rowLength].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex + rowLength - 1].className === 'bomba') bombyDookola++;
+                  if(cells[cellIndex - rowLength - 1].className === 'bomba') bombyDookola++;
+              }
+
+              else { //Wewnętrzny kwadrat
+                  if (cells[cellIndex - 1].className === 'bomba') bombyDookola++;
+                  if (cells[cellIndex + 1].className === 'bomba') bombyDookola++;
+                  if (cells[cellIndex - rowLength].className === 'bomba') bombyDookola++;
+                  if (cells[cellIndex + rowLength].className === 'bomba') bombyDookola++;
+                  if (cells[cellIndex - rowLength - 1].className === 'bomba') bombyDookola++;
+                  if (cells[cellIndex - rowLength + 1].className === 'bomba') bombyDookola++;
+                  if (cells[cellIndex + rowLength - 1].className === 'bomba') bombyDookola++;
+                  if (cells[cellIndex + rowLength + 1].className === 'bomba') bombyDookola++;
+              }
+              this.innerText = bombyDookola;
+          }
+      }
+    })
+  </script>
+</body>
+</html>
