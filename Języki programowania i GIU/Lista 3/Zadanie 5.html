@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 5</title>
+</head>
+<body>
+    <h1>Polska</h1>
+    <h2><a href="https://um.warszawa.pl/">Warszawa</a></h2>
+    <h3>Praga</h3>
+    <p>
+        Artystyczna, niepozorna Praga jest usiana przedwojennymi budynkami, takimi jak Dawny Żydowski Dom Akademicki w Warszawie.
+        niegdysiejsza bursa dla żydowskich studentów, w której w czasach zimnej wojny swoją siedzibę miał NKWD, a następnie Wojewódzki Urząd Bezpieczeństwa.
+        Centrum Praskie Koneser to kompleks kulturalno-biznesowy mieszczący się w dawnej gorzelni, na którego terenie znajduje się Muzeum Polskiej Wódki.
+        W okolicy jest wiele sklepów z odzieżą w stylu vintage, niekonwencjonalnych barów i murali.
+    </p>
+    <h3>Saska Kępa</h3>
+    <p>
+        Osiedle i obszar MSI w dzielnicy Praga-Południe w Warszawie.Saska Kępa ma status osiedla z własnym samorządem i
+        pod względem administracyjnym stanowi część dzielnicy Praga-Południe, w ramach której sąsiaduje z Kamionkiem,
+        Grochowem i Gocławiem.
+    </p>
+    <h2>Wroclaw</h2>
+    <h3>Biskupin</h3>
+    <p>
+        Część Wrocławia, na osiedlu Biskupin-Sępolno-Dąbie-Bartoszowice, w byłej dzielnicy Śródmieście.
+        Położony na prawym brzegu przekopu Bartoszowicko-Szczytnickiego, wykonanego w latach 1531-1555 i
+        od tego czasu pełniącego funkcję głównego koryta Odry, w obrębie Wielkiej Wyspy.
+
+    </p>
+    <h3>Nadodrze</h3>
+    <p>
+        Nadodrze to prężnie rozwijająca się dzielnica słynąca z ulicznych murali zdobiących XIX-wieczne
+        budynki mieszkalne i podwórka.W galeriach i sklepach z wyposażeniem wnętrz można kupić dzieła współczesnego
+        polskiego designu, a wegetariańskie kawiarnie i bary o artystycznej atmosferze sąsiadują z
+        delikatesami i piekarniami oferującymi ekologiczne produkty.
+    </p>
+    <h1>Wielka Brytania</h1>
+    <h2>Londyn</h2>
+    <h2>Liverpool</h2>
+    <h2>Leicester</h2>
+    <div id="toc"></div>
+    <script>
+    let toc = document.getElementById("toc");
+    let headers = document.querySelectorAll("h1, h2, h3");
+    let list = "<ul>";
+    let nextTag = '';
+    let tag = '';
+    let opentag = "<ul>";
+    let closetag = "</ul>";
+    let substring = '';
+    let text = '';
+    let ratio = 0;
+    text = headers[0].innerText;
+    if(headers[0].tagName === "H1"){
+        list += "<li><a href='#" + '0' + "'>"+text+"</a></li>"
+    }
+    else if(headers[0].tagName === "H2"){
+        list += "<ul><li><a href='#" + '0' +"'>"+text+"</a></li>"
+    }
+    else if(headers[0].tagName === "H3" ){
+        list += "<ul><ul><li><a href='#" + '0' + "'>"+text+"</a></li>"
+    }
+
+    for(let i = 0, j = 1; i < headers.length, j < headers.length; i++, j++){
+        let link = headers[1].childNodes[0]; //hasAttribute
+        tag = headers[i].tagName;
+        nextTag = headers[j].tagName;
+        text = headers[i + 1].innerText;
+        if(tag < nextTag){
+            ratio = eval(nextTag.substring(1,)) - eval(tag.substring(1,))
+            substring = opentag.repeat(ratio);
+            list += substring
+        }
+        else if(tag > nextTag){
+            ratio = eval(tag.substring(1,)) - eval(nextTag.substring(1,))
+            substring = closetag.repeat(ratio);
+            list += substring
+        }
+        if(link.href){
+            list += "<li><a href='"+link.href+"'>" + text + "</a></li>"
+        }
+        else
+            list += "<li><a href='#" + i + "'>" + text + "</a></li>"
+
+    }
+    list += '</ul>';
+    toc.innerHTML = list;
+    </script>
+</body>
+</html>
