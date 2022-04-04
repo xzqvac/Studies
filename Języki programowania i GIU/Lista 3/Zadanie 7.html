@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p, h1, h2 {
+            text-align: left;
+        }
+        div.scroll {
+            overflow: scroll;
+            width: 300px;
+            height: 200px;
+            text-align: center;
+            margin: auto;
+            position: relative;
+        }
+        button {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="first">
+    <h1>Chomiki</h1>
+    <br>
+    <h2>Chomiki (Cricetinae) – podrodzina gryzoni z rodziny chomikowatych (Cricetidae).</h2>
+    <br>
+    <p>
+        Do rodziny chomikowatych zalicza się blisko 300 gatunków.
+        Mysz domowa, myszarka leśna, suwak mongolski i inne myszowate są dalekimi krewnymi chomików.
+        Jako zwierzęta domowe hodowane bywają: chomiczek syryjski, chomicznik malutki, chomik chiński,
+        chomicznik dżungarski i chomicznik zabajkalski.
+    </p>
+    <h2>Zasięg występowania</h2>
+    <p>
+        Podrodzina obejmuje gatunki występujące w Eurazji.
+    </p>
+    <h2>Główne cechy budowy anatomicznej</h2>
+    <p>
+        Chomiki posiadają 16 zębów. 2 siekacze i 6 trzonowców rozstawione na dole i na górze.
+        Zęby gryzoni są zębami długokoronowymi (szkliwo pokrywa także korzeń zęba znajdując się między zębiną a cementem),
+        rosną przez całe życie zwierzęcia i aby nie doszło do ich przerostu, skutkującego zranieniami i chorobami,
+        zwierzę musi je ścierać, jedząc twardy pokarm. Tuż przy obu stronach warg znajdują się pojemne worki policzkowe.
+        Są tak duże, że po napełnieniu przekraczają podwojony obwód głowy. Służą do transportu pożywienia.
+        Zwierzę opróżnia je pocierając je przednimi kończynami. Żołądek chomika składa się z dwóch komór.
+        W pierwszej komorze następuje wstępne trawienie, natomiast w głównej komorze pokarm przechodzi ostateczne trawienie.
+    </p>
+</div>
+<script>
+    const wordCollector = new Map();
+    let text = document.getElementById('first').textContent.replace(/(\r\n|\n|\r)/gm, "").split(/[ !@#$%^&*()_+=?><,.;:|/'"]/);
+
+    for(let word of text){
+       if(word.length !== 0) {
+           if (wordCollector.has(word)) {
+               wordCollector.set(word, wordCollector.get(word) + 1)
+           } else {
+               wordCollector.set(word, 1)
+           }
+       }
+    }
+
+    wordCollector[Symbol.iterator] = function* (){
+        yield* [...this.entries()].sort((a, b) => b[1] - a[1]);
+    }
+
+    let start = '';
+
+    for (let [key, value] of wordCollector) {
+        start += `${key}` + ': ' + `${value}` + '\n';
+    }
+
+    let div = document.createElement('div');
+    div.className = 'scroll';
+    let exitButton = document.createElement('button');
+    exitButton.id = "exit";
+    exitButton.innerText = "X";
+    div.innerText = start;
+    div.appendChild(exitButton);
+    document.body.appendChild(div);
+
+    let exit = document.getElementById("exit").onclick = function(){
+        div.remove();
+    };
+</script>
+</body>
+</html>
