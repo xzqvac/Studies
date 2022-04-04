@@ -14,7 +14,7 @@
         Centrum Praskie Koneser to kompleks kulturalno-biznesowy mieszczący się w dawnej gorzelni, na którego terenie znajduje się Muzeum Polskiej Wódki.
         W okolicy jest wiele sklepów z odzieżą w stylu vintage, niekonwencjonalnych barów i murali.
     </p>
-    <h3>Saska Kępa</h3>
+    <h3><a href="https://www.saskakepa.waw.pl/">Saska Kępa</a></h3>
     <p>
         Osiedle i obszar MSI w dzielnicy Praga-Południe w Warszawie.Saska Kępa ma status osiedla z własnym samorządem i
         pod względem administracyjnym stanowi część dzielnicy Praga-Południe, w ramach której sąsiaduje z Kamionkiem,
@@ -38,7 +38,7 @@
     <h1>Wielka Brytania</h1>
     <h2>Londyn</h2>
     <h2>Liverpool</h2>
-    <h2>Leicester</h2>
+    <h2><a href="https://pl.wikipedia.org/wiki/Leicester">Leicester</a></h2>
     <div id="toc"></div>
     <script>
     let toc = document.getElementById("toc");
@@ -63,7 +63,7 @@
     }
 
     for(let i = 0, j = 1; i < headers.length, j < headers.length; i++, j++){
-        let link = headers[1].childNodes[0]; //hasAttribute
+        let link = headers[i + 1].childNodes[0]; //hasAttribute
         tag = headers[i].tagName;
         nextTag = headers[j].tagName;
         text = headers[i + 1].innerText;
